@@ -1,8 +1,10 @@
 import { WebSocket } from 'ws';
 import fs from 'fs';
-require('dotenv').config();
+import dotenv from 'dotenv';
 
-const URL = `wss://${process.env.IP_ADDRESS}:${PORT}`
+dotenv.config()
+
+const URL = `wss://${process.env.IP_ADDRESS}:${process.env.PORT}`
 
 const socket = new WebSocket(URL, {
     ca: fs.readFileSync(process.env.CERTIFICATE_PATH)
